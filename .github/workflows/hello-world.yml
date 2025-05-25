@@ -1,5 +1,8 @@
 name: Hello World Workflow # workflow name
-on: [push] # event/trigger
+on: 
+  push: # event/trigger
+    branches: # branches to trigger on
+      - main
 jobs: # jobs
   say-hello: # job name
     runs-on: ubuntu-latest # runner/environment
@@ -10,4 +13,4 @@ jobs: # jobs
           # and branch that triggered the workflow
       
       - name: Say Hello # step name
-        run: echo "Hello World Workflow! - branch1" # command to run
+        run: echo "Hello World Workflow! - branch1 - updated" # command to run
