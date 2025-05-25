@@ -1,0 +1,18 @@
+name: Manual + Auto Trigger Workflow
+
+on:
+    workflow_dispatch:
+    push:
+        branches:
+            - main
+
+jobs:
+    Say-Hello:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Say Branch Name
+              run: |
+                echo "Branch: ${{ github.ref_name }}"
