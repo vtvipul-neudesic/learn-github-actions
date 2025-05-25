@@ -1,11 +1,16 @@
 name: Hello World Workflow # workflow name
-on: [push] # event/trigger
+on: 
+  push: # event/trigger
+    branches: # branches to trigger on
+      - main
 jobs: # jobs
   say-hello: # job name
     runs-on: ubuntu-latest # runner/environment
     steps: # steps
       - name: Checkout code # step name
-        uses: actions/checkout@v4 # action to checkout code
+        uses: actions/checkout@v4 # action to checkout code into runners env - 
+          # this by default checks out the repository that contains the workflow file 
+          # and branch that triggered the workflow
       
       - name: Say Hello # step name
-        run: echo "Hello World Workflow!" # command to run
+        run: echo "Hello World Workflow! - branch1 - updated" # command to run
